@@ -9,14 +9,15 @@ class StudentController extends Controller
 {
   public  function home (){
 
-    $mergedData = Student::latest()
-    ->join('documentdets', 'students.id', '=', 'documentdets.id')
-    ->select('students.*', 'documentdets.*')
-    ->orderBy('students.created_at', 'desc')
-    ->first();
-    // echo "<pre>";
-    // print_r($mergedata);
-    // echo "</pre>";
+    $student = Student::all();
+    $document = documentdet::all();
+     echo "<pre>";
+     print_r($student);
+     echo "</pre>";
+      echo "<pre>";
+     print_r($document);
+     echo "</pre>";
+      exit;
     return view('index')->with('data', $mergedData);
 
 
